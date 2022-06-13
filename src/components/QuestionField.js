@@ -23,6 +23,8 @@ export const QuestionField = () => {
   };
 
   async function FetchQuestion() {
+    document.getElementById("paragrapf").innerHTML = "";
+
     if (isTrue) {
       //disable button1
       document.getElementById("button1").disabled = false;
@@ -111,6 +113,9 @@ export const QuestionField = () => {
         if (isTrue) {
           document.getElementById("button4").disabled = true;
         }
+        if (isTrue) {
+          document.getElementById("paragrapf").innerHTML = corAns;
+        }
       }
     }
   }
@@ -144,6 +149,9 @@ export const QuestionField = () => {
         }
         if (isTrue) {
           document.getElementById("button4").disabled = true;
+        }
+        if (isTrue) {
+          document.getElementById("paragrapf").innerHTML = corAns;
         }
       }
     }
@@ -179,6 +187,9 @@ export const QuestionField = () => {
         if (isTrue) {
           document.getElementById("button4").disabled = true;
         }
+        if (isTrue) {
+          document.getElementById("paragrapf").innerHTML = corAns;
+        }
       }
     }
   }
@@ -212,6 +223,9 @@ export const QuestionField = () => {
         }
         if (isTrue) {
           document.getElementById("button4").disabled = true;
+        }
+        if (isTrue) {
+          document.getElementById("paragrapf").innerHTML = corAns;
         }
       }
     }
@@ -285,6 +299,7 @@ export const QuestionField = () => {
       >
         {qanda[3]}
       </Button4>
+      <p id="paragrapf"></p>
     </div>
   );
 };
