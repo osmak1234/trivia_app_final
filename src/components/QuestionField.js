@@ -13,6 +13,7 @@ export const QuestionField = () => {
   const [incorrectAnswer2, setIncorrectAnswer2] = useState();
   const [incorrectAnswer3, setIncorrectAnswer3] = useState();
   const [corAns, setcorAns] = useState();
+  const [counter1, setCounter1] = useState();
 
   const Button = () => {
     return (
@@ -25,17 +26,20 @@ export const QuestionField = () => {
   async function FetchQuestion() {
     document.getElementById("paragrapf").innerHTML = "";
 
-    if (isTrue) {
-      //disable button1
+    if (True) {
+      
       document.getElementById("button1").disabled = false;
-      if (isTrue) {
+      if (True) {
         document.getElementById("button2").disabled = false;
       }
-      if (isTrue) {
+      if (True) {
         document.getElementById("button3").disabled = false;
       }
-      if (isTrue) {
+      if (True) {
         document.getElementById("button4").disabled = false;
+      }
+      if (True) {
+        setCounter1(counter1 + 1);
       }
     }
 
@@ -44,11 +48,11 @@ export const QuestionField = () => {
     )
       .then((response) => response.json())
       .then((data) => (theQuestion = data));
-    console.log(theQuestion);
-    console.log(correctAnswer);
-    console.log(incorrectAnswer1);
-    console.log(incorrectAnswer2);
-    console.log(incorrectAnswer3);
+    // console.log(theQuestion);
+    // console.log(correctAnswer);
+    // console.log(incorrectAnswer1);
+    // console.log(incorrectAnswer2);
+    // console.log(incorrectAnswer3);
 
     updateQanda([
       theQuestion[0].correctAnswer,
@@ -57,8 +61,8 @@ export const QuestionField = () => {
       theQuestion[0].incorrectAnswers[2],
     ]);
 
-    console.log(qanda);
-    setcorAns(theQuestion[0].correctAnswer); //correct answer
+    
+    setcorAns(theQuestion[0].correctAnswer); 
 
     setQuestion(theQuestion[0].question);
     setCorrectAnswer(theQuestion[0].correctAnswer);
@@ -66,7 +70,7 @@ export const QuestionField = () => {
     setIncorrectAnswer2(theQuestion[0].incorrectAnswers[1]);
     setIncorrectAnswer3(theQuestion[0].incorrectAnswers[2]);
 
-    //randomise array
+    
     var randomise = [
       theQuestion[0].correctAnswer,
       theQuestion[0].incorrectAnswers[0],
@@ -82,12 +86,12 @@ export const QuestionField = () => {
   const isTrue = true;
 
   function onClick1() {
-    //if statement
+    
     if (corAns === qanda[0]) {
       document.getElementById("button1").style.backgroundColor = "green";
 
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -102,7 +106,7 @@ export const QuestionField = () => {
     } else {
       document.getElementById("button1").style.backgroundColor = "red";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -120,11 +124,11 @@ export const QuestionField = () => {
     }
   }
   function onClick2() {
-    //if statement
+    
     if (corAns === qanda[1]) {
       document.getElementById("button2").style.backgroundColor = "green";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -139,7 +143,7 @@ export const QuestionField = () => {
     } else {
       document.getElementById("button2").style.backgroundColor = "red";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -157,11 +161,11 @@ export const QuestionField = () => {
     }
   }
   function onClick3() {
-    //if statement
+    
     if (corAns === qanda[2]) {
       document.getElementById("button3").style.backgroundColor = "green";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -176,7 +180,7 @@ export const QuestionField = () => {
     } else {
       document.getElementById("button3").style.backgroundColor = "red";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -194,11 +198,11 @@ export const QuestionField = () => {
     }
   }
   function onClick4() {
-    //if statement
+    
     if (corAns === qanda[3]) {
       document.getElementById("button4").style.backgroundColor = "green";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -213,7 +217,7 @@ export const QuestionField = () => {
     } else {
       document.getElementById("button4").style.backgroundColor = "red";
       if (isTrue) {
-        //disable button1
+        
         document.getElementById("button1").disabled = true;
         if (isTrue) {
           document.getElementById("button2").disabled = true;
@@ -272,28 +276,28 @@ export const QuestionField = () => {
       <h1 className="header">{question}</h1>
 
       <Button1
-        color={correct ? "green" : "red"}
+        
         onClick={onClick1}
         className="btn-block"
       >
         {qanda[0]}
       </Button1>
       <Button2
-        color={correct ? "green" : "red"}
+        
         onClick={onClick2}
         className="btn-block"
       >
         {qanda[1]}
       </Button2>
       <Button3
-        color={correct ? "red" : "green"}
+        
         onClick={onClick3}
         className="btn-block"
       >
         {qanda[2]}
       </Button3>
       <Button4
-        color={correct ? "red" : "green"}
+        
         onClick={onClick4}
         className="btn-block"
       >
