@@ -8,12 +8,7 @@ export const QuestionField = () => {
   const [qanda, updateQanda] = useState([]);
 
   const [question, setQuestion] = useState();
-  const [correctAnswer, setCorrectAnswer] = useState();
-  const [incorrectAnswer1, setIncorrectAnswer1] = useState();
-  const [incorrectAnswer2, setIncorrectAnswer2] = useState();
-  const [incorrectAnswer3, setIncorrectAnswer3] = useState();
   const [corAns, setcorAns] = useState();
-  const [counter1, setCounter1] = useState();
 
   const Button = () => {
     return (
@@ -25,52 +20,24 @@ export const QuestionField = () => {
 
   async function FetchQuestion() {
     document.getElementById("paragrapf").innerHTML = "";
-
-    if (isTrue) {
-      
-      document.getElementById("button1").disabled = false;
-      if (isTrue) {
-        document.getElementById("button2").disabled = false;
-      }
-      if (isTrue) {
-        document.getElementById("button3").disabled = false;
-      }
-      if (isTrue) {
-        document.getElementById("button4").disabled = false;
-      }
-      if (isTrue) {
-        setCounter1(counter1 + 1);
-      }
-    }
+    document.getElementById(
+      "button1",
+      "button2",
+      "button3",
+      "button4"
+    ).disabled = false;
 
     var theQuestion = await fetch(
       "https://the-trivia-api.com/api/questions?limit=1&region=CZ"
     )
       .then((response) => response.json())
       .then((data) => (theQuestion = data));
-    // console.log(theQuestion);
-    // console.log(correctAnswer);
-    // console.log(incorrectAnswer1);
-    // console.log(incorrectAnswer2);
-    // console.log(incorrectAnswer3);
 
-    updateQanda([
-      theQuestion[0].correctAnswer,
-      theQuestion[0].incorrectAnswers[0],
-      theQuestion[0].incorrectAnswers[1],
-      theQuestion[0].incorrectAnswers[2],
-    ]);
+    setcorAns(theQuestion[0].correctAnswer); //correct answer
 
-    
-    setcorAns(theQuestion[0].correctAnswer); 
+    setQuestion(theQuestion[0].question); //the question
 
-    setQuestion(theQuestion[0].question);
-    setCorrectAnswer(theQuestion[0].correctAnswer);
-    setIncorrectAnswer1(theQuestion[0].incorrectAnswers[0]);
-    setIncorrectAnswer2(theQuestion[0].incorrectAnswers[1]);
-    setIncorrectAnswer3(theQuestion[0].incorrectAnswers[2]);
-
-    
+    //shuffling of the answers
     var randomise = [
       theQuestion[0].correctAnswer,
       theQuestion[0].incorrectAnswers[0],
@@ -83,159 +50,58 @@ export const QuestionField = () => {
     updateQanda(randomise);
   }
 
-  const isTrue = true;
+  function disableButtons() {
+    document.getElementById("button1").disabled = true;
+    document.getElementById("button2").disabled = true;
+    document.getElementById("button3").disabled = true;
+    document.getElementById("button4").disabled = true;
+  }
+  //change the button collor, passing in parameters
+  function changeColor(color, button) {
+    document.getElementById(button).style.backgroundColor = color;
+  }
 
   function onClick1() {
-    
     if (corAns === qanda[0]) {
-      document.getElementById("button1").style.backgroundColor = "green";
-
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-      }
+      changeColor("green", "button1");
+      disableButtons();
     } else {
-      document.getElementById("button1").style.backgroundColor = "red";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("paragrapf").innerHTML = corAns;
-        }
-      }
+      changeColor("red", "button1");
+      disableButtons();
+
+      document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
   function onClick2() {
-    
     if (corAns === qanda[1]) {
-      document.getElementById("button2").style.backgroundColor = "green";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-      }
+      changeColor("green", "button2");
+      disableButtons();
     } else {
-      document.getElementById("button2").style.backgroundColor = "red";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("paragrapf").innerHTML = corAns;
-        }
-      }
+      changeColor("red", "button2");
+      disableButtons();
+      document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
   function onClick3() {
-    
     if (corAns === qanda[2]) {
-      document.getElementById("button3").style.backgroundColor = "green";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-      }
+      changeColor("green", "button3");
+      disableButtons();
     } else {
-      document.getElementById("button3").style.backgroundColor = "red";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("paragrapf").innerHTML = corAns;
-        }
-      }
+      changeColor("red", "button3");
+      disableButtons();
+      document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
   function onClick4() {
-    
     if (corAns === qanda[3]) {
-      document.getElementById("button4").style.backgroundColor = "green";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-      }
+      changeColor("green", "button4");
+      disableButtons();
     } else {
-      document.getElementById("button4").style.backgroundColor = "red";
-      if (isTrue) {
-        
-        document.getElementById("button1").disabled = true;
-        if (isTrue) {
-          document.getElementById("button2").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button3").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("button4").disabled = true;
-        }
-        if (isTrue) {
-          document.getElementById("paragrapf").innerHTML = corAns;
-        }
-      }
+      changeColor("red", "button4");
+      disableButtons();
+      document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
-
-  let correct = true;
 
   const Button1 = () => {
     return (
@@ -275,32 +141,16 @@ export const QuestionField = () => {
 
       <h1 className="header">{question}</h1>
 
-      <Button1
-        
-        onClick={onClick1}
-        className="btn-block"
-      >
+      <Button1 onClick={onClick1} className="btn-block">
         {qanda[0]}
       </Button1>
-      <Button2
-        
-        onClick={onClick2}
-        className="btn-block"
-      >
+      <Button2 onClick={onClick2} className="btn-block">
         {qanda[1]}
       </Button2>
-      <Button3
-        
-        onClick={onClick3}
-        className="btn-block"
-      >
+      <Button3 onClick={onClick3} className="btn-block">
         {qanda[2]}
       </Button3>
-      <Button4
-        
-        onClick={onClick4}
-        className="btn-block"
-      >
+      <Button4 onClick={onClick4} className="btn-block">
         {qanda[3]}
       </Button4>
       <p id="paragrapf"></p>
