@@ -26,19 +26,19 @@ export const QuestionField = () => {
   async function FetchQuestion() {
     document.getElementById("paragrapf").innerHTML = "";
 
-    if (True) {
+    if (isTrue) {
       
       document.getElementById("button1").disabled = false;
-      if (True) {
+      if (isTrue) {
         document.getElementById("button2").disabled = false;
       }
-      if (True) {
+      if (isTrue) {
         document.getElementById("button3").disabled = false;
       }
-      if (True) {
+      if (isTrue) {
         document.getElementById("button4").disabled = false;
       }
-      if (True) {
+      if (isTrue) {
         setCounter1(counter1 + 1);
       }
     }
