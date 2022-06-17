@@ -5,8 +5,12 @@ export const QuestionField = () => {
     FetchQuestion();
   }, []);
 
-  const [qanda, updateQanda] = useState([]);
+  //add 1 to ansCounter
 
+  setAnsCounter(ansCounter + 1);
+
+  const [ansCounter, setAnsCounter] = useState(0);
+  const [qanda, updateQanda] = useState([]);
   const [question, setQuestion] = useState();
   const [corAns, setcorAns] = useState();
 
@@ -138,6 +142,9 @@ export const QuestionField = () => {
   return (
     <div className="container">
       <Button />
+      <div className="row">
+        <p>{ansCounter}</p>
+      </div>
 
       <h1 className="header">{question}</h1>
 
