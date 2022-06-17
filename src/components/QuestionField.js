@@ -5,10 +5,6 @@ export const QuestionField = () => {
     FetchQuestion();
   }, []);
 
-  //add 1 to ansCounter
-
-  setAnsCounter(ansCounter + 1);
-
   const [ansCounter, setAnsCounter] = useState(0);
   const [qanda, updateQanda] = useState([]);
   const [question, setQuestion] = useState();
@@ -52,6 +48,8 @@ export const QuestionField = () => {
       return 0.5 - Math.random();
     });
     updateQanda(randomise);
+
+    setAnsCounter(ansCounter + 1);
   }
 
   function disableButtons() {
