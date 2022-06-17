@@ -61,6 +61,7 @@ export const QuestionField = () => {
     document.getElementById("button4").disabled = true;
   }
   //change the button collor, passing in parameters
+
   function changeColor(color, button) {
     document.getElementById(button).style.backgroundColor = color;
   }
@@ -69,11 +70,15 @@ export const QuestionField = () => {
     if (corAns === qanda[0]) {
       changeColor("green", "button1");
       disableButtons();
-      setCorCounter(corCounter + 1);
+      () => {
+        setCorCounter(corCounter + 1);
+      };
     } else {
       changeColor("red", "button1");
       disableButtons();
-      setInCorCounter(inCorCounter + 1);
+      () => {
+        setInCorCounter(inCorCounter + 1);
+      };
 
       document.getElementById("paragrapf").innerHTML = corAns;
     }
@@ -82,7 +87,9 @@ export const QuestionField = () => {
     if (corAns === qanda[1]) {
       changeColor("green", "button2");
       disableButtons();
-      setCorCounter(corCounter + 1);
+      () => {
+        setCorCounter(corCounter + 1);
+      };
     } else {
       changeColor("red", "button2");
       disableButtons();
