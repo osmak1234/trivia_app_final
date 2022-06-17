@@ -66,20 +66,25 @@ export const QuestionField = () => {
     document.getElementById(button).style.backgroundColor = color;
   }
 
+  function addCount1(button) {
+    setAnsCounter(ansCounter + 1);
+  }
+  function addCount2(button) {
+    setInCorCounter(inCorCounter + 1);
+  }
+
   function onClick1() {
     if (corAns === qanda[0]) {
       changeColor("green", "button1");
       disableButtons();
-      () => {
-        setCorCounter(corCounter + 1);
-      };
+
+      addCount1();
     } else {
       changeColor("red", "button1");
       disableButtons();
-      () => {
-        setInCorCounter(inCorCounter + 1);
-      };
+      addCount2();
 
+      setInCorCounter(inCorCounter + 1);
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -87,13 +92,13 @@ export const QuestionField = () => {
     if (corAns === qanda[1]) {
       changeColor("green", "button2");
       disableButtons();
-      () => {
-        setCorCounter(corCounter + 1);
-      };
+      addCount1();
+
+      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button2");
       disableButtons();
-      setInCorCounter(inCorCounter + 1);
+      addCount2();
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -101,11 +106,11 @@ export const QuestionField = () => {
     if (corAns === qanda[2]) {
       changeColor("green", "button3");
       disableButtons();
-      setCorCounter(corCounter + 1);
+      addCount1();
     } else {
       changeColor("red", "button3");
       disableButtons();
-      setInCorCounter(inCorCounter + 1);
+      addCount2();
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -113,11 +118,11 @@ export const QuestionField = () => {
     if (corAns === qanda[3]) {
       changeColor("green", "button4");
       disableButtons();
-      setCorCounter(corCounter + 1);
+      addCount1();
     } else {
       changeColor("red", "button4");
       disableButtons();
-      setInCorCounter(inCorCounter + 1);
+      addCount2();
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
