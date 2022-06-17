@@ -5,10 +5,12 @@ export const QuestionField = () => {
     FetchQuestion();
   }, []);
 
-  const [ansCounter, setAnsCounter] = useState(0);
+  const [ansCounter, setAnsCounter] = useState(-1);
   const [qanda, updateQanda] = useState([]);
   const [question, setQuestion] = useState();
   const [corAns, setcorAns] = useState();
+  const [corCounter, setCorCounter] = useState(0);
+  const [inCorCounter, setInCorCorrect] = useState(0);
 
   const Button = () => {
     return (
@@ -67,9 +69,11 @@ export const QuestionField = () => {
     if (corAns === qanda[0]) {
       changeColor("green", "button1");
       disableButtons();
+      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button1");
       disableButtons();
+      setInCorCounter(inCorCounter + 1);
 
       document.getElementById("paragrapf").innerHTML = corAns;
     }
@@ -78,9 +82,11 @@ export const QuestionField = () => {
     if (corAns === qanda[1]) {
       changeColor("green", "button2");
       disableButtons();
+      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button2");
       disableButtons();
+      setInCorCounter(inCorCounter + 1);
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -88,9 +94,11 @@ export const QuestionField = () => {
     if (corAns === qanda[2]) {
       changeColor("green", "button3");
       disableButtons();
+      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button3");
       disableButtons();
+      setInCorCounter(inCorCounter + 1);
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -98,9 +106,11 @@ export const QuestionField = () => {
     if (corAns === qanda[3]) {
       changeColor("green", "button4");
       disableButtons();
+      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button4");
       disableButtons();
+      setInCorCounter(inCorCounter + 1);
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -141,7 +151,7 @@ export const QuestionField = () => {
     <div className="container">
       <Button />
       <div className="row">
-        <p>{ansCounter}</p>
+        <p>You answered {ansCounter} totaly.</p>
       </div>
 
       <h1 className="header">{question}</h1>
