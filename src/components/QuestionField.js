@@ -152,6 +152,8 @@ export const QuestionField = () => {
       <Button />
       <div className="row">
         <p>You answered {ansCounter} totaly.</p>
+        <p>You answered {corCounter} correctly.</p>
+        <p>You answered {inCorCounter} incorrectly.</p>
       </div>
 
       <h1 className="header">{question}</h1>
