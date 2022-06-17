@@ -9,8 +9,7 @@ export const QuestionField = () => {
   const [qanda, updateQanda] = useState([]);
   const [question, setQuestion] = useState();
   const [corAns, setcorAns] = useState();
-  const [corCounter, setCorCounter] = useState(0);
-  const [inCorCounter, setInCorCounter] = useState(0);
+  zx;
 
   const Button = () => {
     return (
@@ -66,25 +65,13 @@ export const QuestionField = () => {
     document.getElementById(button).style.backgroundColor = color;
   }
 
-  function addCount1(button) {
-    setAnsCounter(ansCounter + 1);
-  }
-  function addCount2(button) {
-    setInCorCounter(inCorCounter + 1);
-  }
-
   function onClick1() {
     if (corAns === qanda[0]) {
       changeColor("green", "button1");
       disableButtons();
-
-      addCount1();
     } else {
       changeColor("red", "button1");
       disableButtons();
-      addCount2();
-
-      setInCorCounter(inCorCounter + 1);
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -92,13 +79,10 @@ export const QuestionField = () => {
     if (corAns === qanda[1]) {
       changeColor("green", "button2");
       disableButtons();
-      addCount1();
-
-      setCorCounter(corCounter + 1);
     } else {
       changeColor("red", "button2");
       disableButtons();
-      addCount2();
+
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -106,11 +90,10 @@ export const QuestionField = () => {
     if (corAns === qanda[2]) {
       changeColor("green", "button3");
       disableButtons();
-      addCount1();
     } else {
       changeColor("red", "button3");
       disableButtons();
-      addCount2();
+
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
@@ -118,11 +101,10 @@ export const QuestionField = () => {
     if (corAns === qanda[3]) {
       changeColor("green", "button4");
       disableButtons();
-      addCount1();
     } else {
       changeColor("red", "button4");
       disableButtons();
-      addCount2();
+
       document.getElementById("paragrapf").innerHTML = corAns;
     }
   }
