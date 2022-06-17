@@ -10,7 +10,7 @@ export const QuestionField = () => {
   const [question, setQuestion] = useState();
   const [corAns, setcorAns] = useState();
   const [corCounter, setCorCounter] = useState(0);
-  const [inCorCounter, setInCorCorrect] = useState(0);
+  const [inCorCounter, setInCorCounter] = useState(0);
 
   const Button = () => {
     return (
