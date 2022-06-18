@@ -9,7 +9,6 @@ export const QuestionField = () => {
   const [qanda, updateQanda] = useState([]);
   const [question, setQuestion] = useState();
   const [corAns, setcorAns] = useState();
-  zx;
 
   const Button = () => {
     return (
@@ -146,8 +145,6 @@ export const QuestionField = () => {
       <Button />
       <div className="row">
         <p>You answered {ansCounter} totaly.</p>
-        <p>You answered {corCounter} correctly.</p>
-        <p>You answered {inCorCounter} incorrectly.</p>
       </div>
 
       <h1 className="header">{question}</h1>
