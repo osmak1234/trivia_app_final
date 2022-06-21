@@ -144,7 +144,7 @@ export const QuestionField = () => {
     <div className="container">
       <Button />
       <div className="row">
-        <p>You answered {ansCounter} totaly.</p>
+        <p>You answered {ansCounter} totally.</p>
       </div>
 
       <h1 className="header">{question}</h1>
